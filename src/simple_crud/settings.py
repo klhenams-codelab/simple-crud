@@ -156,6 +156,12 @@ USE_TZ = True
 STATIC_LOCATION = env('STATIC_LOCATION')
 MEDIA_LOCATION = env('MEDIA_LOCATION')
 
+STATIC_URL = f'/{STATIC_LOCATION}/'
+STATIC_ROOT = BASE_DIR / STATIC_LOCATION
+
+MEDIA_URL = f'/{MEDIA_LOCATION}/'
+MEDIA_ROOT = BASE_DIR / MEDIA_LOCATION
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
