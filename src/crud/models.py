@@ -17,5 +17,7 @@ class Diagnosis(models.Model):
         return self.__str__()
 
     class Meta:
+        unique_together = ('category_code', 'diagnosis_code')
+        ordering = ("-created_at",)
         verbose_name = 'Diagnosis'
         verbose_name_plural = 'Diagnoses'
