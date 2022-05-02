@@ -21,3 +21,8 @@ class Diagnosis(models.Model):
         ordering = ("-created_at",)
         verbose_name = 'Diagnosis'
         verbose_name_plural = 'Diagnoses'
+
+
+class DiagnosisFile(models.Model):
+    file = models.FileField(upload_to='diagnosis')
+    upload_at = models.DateTimeField(auto_now=True)
