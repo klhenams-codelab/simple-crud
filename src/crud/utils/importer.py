@@ -3,9 +3,9 @@ from crud.models import Diagnosis
 from rest_framework.exceptions import APIException
 
 
-def csv_to_db(file: str):
+def csv_to_db(file_path: str):
 
-    with open(file.temporary_file_path(), newline='') as f:
+    with open(file_path, newline='') as f:
         reader = csv.reader(f)
         diagnosis_code_list = list(reader)
         objs = [
