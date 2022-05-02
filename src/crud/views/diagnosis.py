@@ -3,7 +3,7 @@ from rest_framework import permissions
 
 
 from crud.models import Diagnosis
-from crud.serializers import DiagnosisWithFullCodeModelSerializer
+from crud.serializers.diagnosis import DiagnosisWithFullCodeModelSerializer
 
 
 
