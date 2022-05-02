@@ -1,6 +1,7 @@
 version: "3.9"
    
 services:
+
   db:
     image: postgres
     volumes:
@@ -11,6 +12,7 @@ services:
       - POSTGRES_PASSWORD=postgres
     ports:
       - "5432:5432"
+
   web:
     build: ./appliances/docker-compose
     command: python manage.py runserver 0.0.0.0:8000
@@ -20,3 +22,16 @@ services:
       - "8000:8000"
     depends_on:
       - db
+      - redis
+  
+  celery:
+        build: ./appliances/docker-compose
+        command: celery -A simple_crud worker -l INFO
+        volumes:
+            - ./src:/src
+        depends_on:
+            - web
+            - redis
+  
+  redis:
+        image: "redis:alpine"
