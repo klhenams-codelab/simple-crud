@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Diagnosis(models.Model):
-    category_code = models.CharField(max_length=5)
+    category_code = models.CharField(max_length=10)
     diagnosis_code = models.CharField(max_length=5, blank=True, null=True)
     category_title = models.CharField(max_length=255)
     abbreviated_description = models.CharField(max_length=255)
